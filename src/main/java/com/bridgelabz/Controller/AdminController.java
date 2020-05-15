@@ -15,17 +15,17 @@ public class AdminController {
     @Autowired
     BookStoreServiceImpl bookStoreService;
 
-    @GetMapping("/homePage")
+    @GetMapping("/home-page")
     public void setDataInDb(){
         bookStoreService.saveBookData();
     }
 
-    @GetMapping("/homePage/allBook")
+    @GetMapping("/list-all-book")
     public ResponseEntity<List<Book>> getAllBook(){
         return new ResponseEntity<>(bookStoreService.getAllBook(), HttpStatus.OK);
     }
 
-    @PostMapping("/addBook")
+    @PostMapping("/add-new-book")
     public ResponseEntity<Book> addNewBook(@RequestBody Book book){
         return new ResponseEntity<>(bookStoreService.addNewBook(book),HttpStatus.OK);
     }
