@@ -1,18 +1,19 @@
 package com.bridgelabz.Model;
 
-import javax.persistence.Entity;
-import javax.persistence.Id;
-import java.util.Arrays;
+
+import javax.persistence.*;
 
 @Entity
 public class Book {
 
     @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private String id;
-    private String author;
+    private String Author;
     private String nameOfBook;
-    private byte[] picByte;
-    private String price;
+    private String picByte;
+    private String Price;
+    @Column(length = 2000)
     private String description;
 
     public String getId() {
@@ -24,11 +25,11 @@ public class Book {
     }
 
     public String getAuthor() {
-        return author;
+        return Author;
     }
 
     public void setAuthor(String author) {
-        this.author = author;
+        Author = author;
     }
 
     public String getNameOfBook() {
@@ -39,20 +40,20 @@ public class Book {
         this.nameOfBook = nameOfBook;
     }
 
-    public byte[] getPicByte() {
+    public String getPicByte() {
         return picByte;
     }
 
-    public void setPicByte(byte[] picByte) {
-       this.picByte = picByte;
+    public void setPicByte(String picByte) {
+        this.picByte = picByte;
     }
 
     public String getPrice() {
-        return price;
+        return Price;
     }
 
     public void setPrice(String price) {
-        this.price = price;
+        Price = price;
     }
 
     public String getDescription() {
@@ -67,15 +68,11 @@ public class Book {
     public String toString() {
         return "Book{" +
                 "id=" + id +
-                ", author='" + author + '\'' +
+                ", author='" + Author + '\'' +
                 ", nameOfBook='" + nameOfBook + '\'' +
-                ", picByte=" + Arrays.toString(picByte) +
-                ", price=" + price +
+                ", picByte=" + picByte +
+                ", price=" + Price +
                 ", description='" + description + '\'' +
                 '}';
-    }
-
-    public void setPicByte(String s) {
-
     }
 }

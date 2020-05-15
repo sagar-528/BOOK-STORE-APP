@@ -1,5 +1,11 @@
 package com.bridgelabz.Service;
 
-public interface BookStoreService {
+import com.bridgelabz.Model.Book;
 
+import java.util.List;
+
+public interface BookStoreService {
+     void saveBookData();
+     List<Book>getAllBook();
+     Book addNewBook(Book book);
 }
