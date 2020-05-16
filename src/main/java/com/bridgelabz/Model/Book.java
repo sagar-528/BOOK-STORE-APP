@@ -15,6 +15,7 @@ public class Book {
     @Column(length = 2000)
     private String description;
 
+
     public String getId() {
         return id;
     }
@@ -74,4 +75,5 @@ public class Book {
                 ", description='" + description + '\'' +
                 '}';
     }
+
 }
