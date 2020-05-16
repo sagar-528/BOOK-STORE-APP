@@ -39,6 +39,6 @@ public class AdminController {
 
     @GetMapping("/home-page/{author}")
     public ResponseEntity<List<Book>> findByAuthor(@PathVariable String author){
-        return new ResponseEntity<>(bookStoreRepository.findByAuthor(author),HttpStatus.OK);
+        return new ResponseEntity<>(bookStoreService.findByAuthor(author),HttpStatus.OK);
     }
 }

@@ -10,4 +10,6 @@ public interface BookStoreService {
      void saveBookData();
      List<Book> getAllBook();
      Book addNewBook(Book book);
+     List<Book> findByAuthor(String author);
+
 }

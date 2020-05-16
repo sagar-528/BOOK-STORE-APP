@@ -49,4 +49,9 @@ public class BookStoreServiceImpl implements BookStoreService {
         return bookStoreRepository.save(book);
     }
 
+    @Override
+    public List<Book> findByAuthor(String author) {
+        return bookStoreRepository.findByAuthor(author);
+    }
+
 }
