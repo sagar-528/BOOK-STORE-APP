@@ -8,13 +8,12 @@ public class Book {
 
     @Id
     private String id;
-    private String Author;
+    private String author;
     private String nameOfBook;
     private String picByte;
     private String Price;
     @Column(length = 2000)
     private String description;
-
 
     public String getId() {
         return id;
@@ -25,11 +24,11 @@ public class Book {
     }
 
     public String getAuthor() {
-        return Author;
+        return author;
     }
 
     public void setAuthor(String author) {
-        Author = author;
+        this.author = author;
     }
 
     public String getNameOfBook() {
@@ -68,7 +67,7 @@ public class Book {
     public String toString() {
         return "Book{" +
                 "id=" + id +
-                ", author='" + Author + '\'' +
+                ", author='" + author + '\'' +
                 ", nameOfBook='" + nameOfBook + '\'' +
                 ", picByte=" + picByte +
                 ", price=" + Price +
