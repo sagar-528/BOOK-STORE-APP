@@ -1,7 +1,8 @@
-package com.bridgelabz.Service;
+package com.bridgelabz.Service.Impl;
 
 import com.bridgelabz.Model.Book;
 import com.bridgelabz.Repository.BookStoreRepository;
+import com.bridgelabz.Service.BookStoreService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Sort;
 import org.springframework.stereotype.Service;
@@ -16,13 +17,14 @@ import java.util.*;
 public class BookStoreServiceImpl implements BookStoreService {
 
     @Autowired
-    public BookStoreRepository bookStoreRepository;
+    private BookStoreRepository bookStoreRepository;
 
     String line = "";
 
     public void saveBookData() {
         try {
             BufferedReader bufferedReader = new BufferedReader(new FileReader("src/main/resources/books_data.csv"));
+            bufferedReader.readLine();
             while ((line = bufferedReader.readLine()) != null) {
                 String[] data = line.split(",");
                 Book book = new Book();
@@ -30,7 +32,7 @@ public class BookStoreServiceImpl implements BookStoreService {
                 book.setAuthor(data[1]);
                 book.setNameOfBook(data[2]);
                 book.setPicByte(data[3]);
-                book.setPrice(data[4]);
+                book.setPrice(Integer.parseInt(data[4]));
                 book.setDescription(data[5]);
                 bookStoreRepository.save(book);
             }
@@ -54,4 +56,13 @@ public class BookStoreServiceImpl implements BookStoreService {
         return bookStoreRepository.findByAuthor(author);
     }
 
+    @Override
+    public List<Book> getAllBookByPriceAsc() {
+        return bookStoreRepository.findAllByOrderByPriceAsc();
+    }
+
+    @Override
+    public List<Book> getAllBookByPriceDesc() {
+        return bookStoreRepository.findAllByOrderByPriceDesc();
+    }
 }

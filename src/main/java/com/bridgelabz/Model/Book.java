@@ -11,9 +11,13 @@ public class Book {
     private String author;
     private String nameOfBook;
     private String picByte;
-    private String Price;
+    private int price;
     @Column(length = 2000)
     private String description;
+
+    public Book() {
+
+    }
 
     public String getId() {
         return id;
@@ -47,12 +51,12 @@ public class Book {
         this.picByte = picByte;
     }
 
-    public String getPrice() {
-        return Price;
+    public int getPrice() {
+        return price;
     }
 
-    public void setPrice(String price) {
-        Price = price;
+    public void setPrice(int price) {
+        this.price = price;
     }
 
     public String getDescription() {
@@ -70,7 +74,7 @@ public class Book {
                 ", author='" + author + '\'' +
                 ", nameOfBook='" + nameOfBook + '\'' +
                 ", picByte=" + picByte +
-                ", price=" + Price +
+                ", price=" + price +
                 ", description='" + description + '\'' +
                 '}';
     }
